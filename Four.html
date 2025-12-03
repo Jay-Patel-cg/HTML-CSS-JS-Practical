@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="show">0</div>
+    <button id="pve">+</button>
+    <button id="nve">-</button>
+
+    <script>
+        let show = document.getElementById("show");
+        let positive = document.getElementById("pve");
+        let negative = document.getElementById("nve");
+
+        let count;
+
+        if (localStorage.getItem("num")) {
+            count = parseInt(localStorage.getItem("num"));
+        } else {
+            count = 0;
+        }
+
+        show.innerText = count;
+
+        positive.addEventListener("click", function () {
+            count++;
+            show.innerText = count;
+            localStorage.setItem("num", count);
+        });
+
+        negative.addEventListener("click", function () {
+            count--;
+            show.innerText = count;
+            localStorage.setItem("num", count);
+        });
+    </script>
+
+</body>
+</html>
